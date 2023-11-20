@@ -1,0 +1,27 @@
+.left-navigation {
+	min-width: 100px;
+	height: 100%;
+	background-color: black;
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	gap: 80px;
+	align-items: center;
+}
+.sports-wrapper {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	gap: 20px;
+	justify-items: center;
+	align-items: center;
+	padding-top: 150px;
+}
+.left-navigation p {
+	color: white;
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+	transform: rotate(-180deg);
+	padding: 20px 0;
+	font-size: 0.8rem;
+}
