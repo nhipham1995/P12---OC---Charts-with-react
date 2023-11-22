@@ -1,16 +1,22 @@
-import Navigation from "./components/Navigation";
-import Content from "./components/content";
-import SportType from "./components/sportType";
 import "./App.css";
+import { DataContextProvider } from "./utils/datas";
+import { Router, Route, Routes } from "express";
+import Home from "./pages/Home";
 function App() {
 	return (
-		<div>
-			<Navigation />
-			<div className="main">
-				<SportType />
-				<Content />
-			</div>
-		</div>
+		// <Router>
+		// 	<Routes>
+		// 		<Route
+		// 			path="/user/:userId"
+		// 			element={
+		// 				<DataContextProvider>
+		// 					<Home />
+		// 				</DataContextProvider>
+		// 			}
+		// 		></Route>
+		// 	</Routes>
+		// </Router>
+		<div>Hello</div>
 	);
 }
 

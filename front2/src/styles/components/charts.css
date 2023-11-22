@@ -1,0 +1,21 @@
+.recharts-legend-wrapper {
+	position: block !important;
+}
+.recharts-polar-grid-angle {
+	display: none;
+}
+.multi-charts {
+	margin: 50px 0;
+
+	display: grid;
+	gap: 50px;
+	grid-template-columns: repeat(3, 1fr) !important;
+}
+@media only screen and (max-width: 1000px) {
+	.multi-charts {
+		gap: 30px;
+		margin: 20px;
+		grid-template-columns: repeat(1, 1fr) !important;
+		justify-items: center;
+	}
+}

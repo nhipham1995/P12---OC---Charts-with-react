@@ -24,8 +24,11 @@ import {
 } from "./customizeChart/customTooltip";
 import { LegendChart, LegendLineChart } from "./customizeChart/LegendChartBar";
 import "./charts.css";
+import { useDataContext } from "../../utils/datas";
 
 const Charts = () => {
+	const { userData } = useDataContext();
+	console.log(userData);
 	return (
 		<div
 			className="chart-container"
