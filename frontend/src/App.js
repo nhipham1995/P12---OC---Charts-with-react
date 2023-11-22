@@ -1,22 +1,22 @@
-import "./App.css";
-import { DataContextProvider } from "./utils/datas";
-import { Router, Route, Routes } from "express";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import { DataContextProvider } from "./utils/datas";
 function App() {
 	return (
-		// <Router>
-		// 	<Routes>
-		// 		<Route
-		// 			path="/user/:userId"
-		// 			element={
-		// 				<DataContextProvider>
-		// 					<Home />
-		// 				</DataContextProvider>
-		// 			}
-		// 		></Route>
-		// 	</Routes>
-		// </Router>
-		<div>Hello</div>
+		<div>
+			<Router>
+				<Routes>
+					<Route
+						path="/user/:userId"
+						element={
+							<DataContextProvider>
+								<Home />
+							</DataContextProvider>
+						}
+					></Route>
+				</Routes>
+			</Router>
+		</div>
 	);
 }
 
