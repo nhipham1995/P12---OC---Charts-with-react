@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import { DataContextProvider } from "./utils/datas";
+import { DataContextProvider } from "./services/datas";
 function App() {
 	return (
 		<div>

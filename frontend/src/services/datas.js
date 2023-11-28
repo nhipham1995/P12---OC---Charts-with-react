@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchData } from "./fetch";
-import { Performance } from "./data";
+import { Performance, Sessions } from "../models";
 
 const baseUrl = "http://localhost:4000";
 
@@ -27,7 +27,11 @@ export function DataContextProvider(props) {
 
 		fetchData(activityURL).then((res) => setActivityData(res));
 
-		fetchData(avgSessionURL).then((res) => setAvgSession(res));
+		fetchData(avgSessionURL).then((res) => {
+			const data = new Sessions(res);
+			const newSessions = data.addDay();
+			setAvgSession(newSessions);
+		});
 
 		fetchData(performanceURL).then((res) => {
 			const per = new Performance(res);

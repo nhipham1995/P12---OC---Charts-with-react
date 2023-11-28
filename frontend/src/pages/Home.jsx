@@ -3,10 +3,10 @@ import Sport from "../components/sport";
 import Result from "../components/result";
 import Charts from "../components/Charts";
 
-import { useDataContext } from "../utils/datas";
+import { useDataContext } from "../services/datas";
 
 import "../styles/pages/home.css";
-import { DataKey } from "../utils/data";
+import { DataKey } from "../models";
 
 const sports = [
 	{ src: "/assets/meditation.png", des: "Mediation" },

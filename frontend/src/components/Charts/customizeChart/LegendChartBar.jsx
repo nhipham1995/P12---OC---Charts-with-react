@@ -58,6 +58,7 @@ export const LegendLineChart = ({ payload }) => {
 					alignItems: "center",
 					justifyContent: "space-between",
 					paddingLeft: "20px",
+					opacity: "90%",
 				}}
 			>
 				<h5

@@ -7,7 +7,6 @@ import {
 } from "recharts";
 
 const RadarChart = ({ data }) => {
-	console.log("performance", data);
 	return (
 		<ResponsiveContainer width="100%" height={280}>
 			<RCRadarChart data={data}>
@@ -26,7 +25,12 @@ const RadarChart = ({ data }) => {
 					radialLines="false"
 					fill="#FFFFFF"
 				/>
-				<PolarAngleAxis dataKey="kind" fontSize={10} />
+				<PolarAngleAxis
+					dataKey="kind"
+					fontSize={10}
+					fontWeight={800}
+					tick={{ fill: "#FFFFFF", opacity: 0.9 }}
+				/>
 			</RCRadarChart>
 		</ResponsiveContainer>
 	);

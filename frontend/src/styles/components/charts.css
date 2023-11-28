@@ -11,6 +11,17 @@
 	gap: 50px;
 	grid-template-columns: repeat(3, 1fr) !important;
 }
+.recharts-cartesian-axis-tick-line {
+	display: none;
+}
+.recharts-cartesian-axis-line {
+	opacity: 0.3;
+	width: 5px;
+	color: "gray" !important;
+}
+/* .recharts-yAxis .recharts-cartesian-axis-line {
+	display: none;
+} */
 @media only screen and (max-width: 1000px) {
 	.multi-charts {
 		gap: 30px;

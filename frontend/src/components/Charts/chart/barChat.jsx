@@ -6,15 +6,20 @@ import {
 	ResponsiveContainer,
 	Tooltip,
 	Legend,
+	CartesianGrid,
 } from "recharts";
 import { LegendChart } from "../customizeChart/LegendChartBar";
 import { CustomTooltip } from "../customizeChart/customTooltip";
+import { UserData } from "../../../models";
 
 const BarChart = ({ data }) => {
+	const userdata = new UserData(data);
+	const newData = userdata.userCount();
+	console.log("newwww", newData);
 	return (
 		<ResponsiveContainer width="100%" height={300}>
 			<RCBarChart
-				data={data?.sessions}
+				data={newData}
 				margin={{
 					top: 5,
 					bottom: 5,
@@ -23,8 +28,35 @@ const BarChart = ({ data }) => {
 				barGap={5}
 				name={"Activité quotidienne"}
 			>
-				<XAxis dataKey="day" />
-				<YAxis orientation="right" />
+				<CartesianGrid
+					strokeDasharray="5 5"
+					vertical={false}
+					opacity={0.5}
+				/>
+				<XAxis
+					dataKey="index"
+					padding={"no-gap"}
+					tickLine={false}
+					dx={0}
+					strokeWidth={1.3}
+					tick={{ fill: "#9B9EAC", fontWeight: 600 }}
+				/>
+				<YAxis
+					dataKey={"calories"}
+					orientation="left"
+					yAxisId="left"
+					hide={true}
+				/>
+				<YAxis
+					dataKey={"kilogram"}
+					orientation="right"
+					domain={["dataMin-1", "dataMax+2"]}
+					axisLine={false}
+					tick={{ fill: "#9B9EAC", fontWeight: 600 }}
+
+					// max={500}
+				/>
+
 				<Tooltip content={CustomTooltip} />
 				<Legend
 					iconSize={15}
@@ -46,6 +78,7 @@ const BarChart = ({ data }) => {
 					dataKey="calories"
 					fill="#E60000"
 					width={0.01}
+					yAxisId="left"
 					name="Calories brûlées (kCal)"
 				/>
 			</RCBarChart>
