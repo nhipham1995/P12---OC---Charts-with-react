@@ -11,13 +11,15 @@
 	gap: 50px;
 	grid-template-columns: repeat(3, 1fr) !important;
 }
+
 .recharts-cartesian-axis-tick-line {
 	display: none;
 }
 .recharts-cartesian-axis-line {
-	opacity: 0.3;
+	/* opacity: 0.3; */
 	width: 5px;
-	color: "gray" !important;
+	color: #dedede !important;
+	background-color: #dedede;
 }
 /* .recharts-yAxis .recharts-cartesian-axis-line {
 	display: none;

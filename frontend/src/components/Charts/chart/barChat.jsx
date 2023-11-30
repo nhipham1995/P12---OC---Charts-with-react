@@ -15,17 +15,16 @@ import { UserData } from "../../../models";
 const BarChart = ({ data }) => {
 	const userdata = new UserData(data);
 	const newData = userdata.userCount();
-	console.log("newwww", newData);
 	return (
 		<ResponsiveContainer width="100%" height={300}>
 			<RCBarChart
+				barGap={5}
 				data={newData}
 				margin={{
 					top: 5,
 					bottom: 5,
 				}}
 				barSize={10}
-				barGap={5}
 				name={"Activité quotidienne"}
 			>
 				<CartesianGrid
@@ -38,8 +37,10 @@ const BarChart = ({ data }) => {
 					padding={"no-gap"}
 					tickLine={false}
 					dx={0}
-					strokeWidth={1.3}
+					strokeWidth={1.5}
+					stroke
 					tick={{ fill: "#9B9EAC", fontWeight: 600 }}
+					axisLine={{ stroke: "#DEDEDE" }}
 				/>
 				<YAxis
 					dataKey={"calories"}
@@ -53,8 +54,6 @@ const BarChart = ({ data }) => {
 					domain={["dataMin-1", "dataMax+2"]}
 					axisLine={false}
 					tick={{ fill: "#9B9EAC", fontWeight: 600 }}
-
-					// max={500}
 				/>
 
 				<Tooltip content={CustomTooltip} />

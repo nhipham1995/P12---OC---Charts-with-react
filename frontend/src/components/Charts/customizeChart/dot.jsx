@@ -2,8 +2,11 @@ export const CustomizedDot = (props) => {
 	const { cx, cy, width } = props;
 	console.log("in chart", width);
 	return (
-		// "0 0 432 280"
-		<svg viewBox={`0 0 ${width} 280`} x={cx - 15} y={cy - 10}>
+		<svg
+			viewBox={`0 0 ${width} 280`}
+			x={width > 400 ? cx - 15 : cx - 10}
+			y={cy - 10}
+		>
 			<circle
 				x={cx}
 				cy="10"
