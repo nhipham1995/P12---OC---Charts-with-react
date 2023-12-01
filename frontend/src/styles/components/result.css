@@ -5,7 +5,7 @@
 	gap: 10px;
 	margin-bottom: 30px;
 	background-color: #00000005;
-	padding: 20px 25px;
+	padding: 36px 25px;
 	border-radius: 5px;
 }
 .result-item .result-img {
@@ -33,4 +33,10 @@
 .result-item p {
 	font-size: 0.7rem;
 	color: #74798c;
+}
+
+@media only screen and (max-width: 1500px) {
+	.result-item {
+		margin-right: 50px;
+	}
 }

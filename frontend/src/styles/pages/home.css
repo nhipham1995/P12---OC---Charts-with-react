@@ -1,21 +1,23 @@
+.main {
+	display: grid;
+	grid-template-columns: 90px 1fr;
+}
 .left-navigation {
 	min-width: 100px;
-	height: 100%;
 	background-color: black;
 	display: flex;
 	flex-flow: column;
-	height: 100%;
-	gap: 80px;
+	/* height: 100%; */
 	align-items: center;
 }
+
 .sports-wrapper {
 	display: flex;
 	flex-flow: column;
-	height: 100%;
 	gap: 20px;
 	justify-items: center;
 	align-items: center;
-	padding-top: 150px;
+	padding-top: 50px;
 }
 .left-navigation p {
 	color: white;
@@ -24,20 +26,26 @@
 	transform: rotate(-180deg);
 	padding: 20px 0;
 	font-size: 0.8rem;
+	height: 500px;
 }
 .main-cover {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	padding: 20px 30px;
+	padding: 20px 0 0 30px;
 }
 
 .main-content {
 	color: black;
-	width: 100%;
-	display: flex;
-	padding: 50px 0;
-	flex-direction: row;
+	width: 90%;
+	/* display: flex;
+	padding-top: 50px;
+	flex-direction: row; */
+	/* display: grid; */
+	/* display: grid;
+	grid-auto-columns: 1fr 1fr; */
+	display: grid;
+	grid-template-columns: 1fr 200px;
 }
 
 .main-cover .text h2 {
@@ -50,6 +58,10 @@
 }
 .results {
 	width: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-bottom: 20px;
 }
 .charts {
 	width: 100%;
@@ -57,7 +69,8 @@
 
 @media only screen and (max-width: 1300px) {
 	.main-content {
-		flex-direction: column;
+		grid-template-columns: none;
+		grid-template-rows: 1fr 300px;
 	}
 }
 

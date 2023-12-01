@@ -20,10 +20,11 @@ const Home = () => {
 		useDataContext();
 	const test = new DataKey(userData?.keyData);
 	const energies = test.result();
+
 	return (
 		<div>
 			<Navigation />
-			<div className="main" style={{ display: "flex" }}>
+			<div className="main">
 				<div className="left-navigation">
 					<div className="sports-wrapper">
 						{sports.map((sport, idx) => (
