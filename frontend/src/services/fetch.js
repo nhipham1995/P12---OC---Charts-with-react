@@ -1,8 +1,8 @@
+// modification this variable to change way to fetch datas
 let isAPITaken = false;
 const data = require("../_mocks/data.js");
 
 export async function fetchData(url, userId, type) {
-	console.log(userId, type);
 	if (isAPITaken) {
 		try {
 			const res = await fetch(url);
