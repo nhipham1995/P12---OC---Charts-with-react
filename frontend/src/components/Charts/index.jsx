@@ -36,6 +36,7 @@ const Charts = ({ activityData, avgSession, performance, user }) => {
 						width: "100%",
 						paddingTop: "20px",
 						maxWidth: "600px",
+						overflow: "hidden",
 					}}
 				>
 					<LineChart data={avgSession} />

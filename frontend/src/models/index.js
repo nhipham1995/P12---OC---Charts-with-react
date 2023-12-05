@@ -1,21 +1,31 @@
+export class Information {
+	constructor(data) {
+		this.id = data?.id;
+		this.keyData = data?.keyData;
+		this.score = data?.score;
+		this.todayScore = data?.todayScore;
+		this.userInfos = data?.userInfos;
+	}
+	transformData() {
+		const newData = {
+			id: this?.id,
+			keyData: this?.keyData,
+			score: this?.todayScore ?? this?.score,
+			userInfos: this?.userInfos,
+		};
+		return newData;
+	}
+}
 export class UserData {
 	constructor(data) {
 		this.data = data?.userId;
 		this.sessions = data?.sessions;
 	}
 	userCount() {
-		console.log("raw data, ", this.sessions);
 		const newData = this.sessions?.map((v, index) => {
 			return { ...v, index: index + 1 };
 		});
-		// const newData = this.sessions?.map((v, index) => {
-		// 	return {
-		// 		day: v.day,
-		// 		kilogram: v.kilogram,
-		// 		kcal: v.calories / 1000,
-		// 		index: index,
-		// 	};
-		// });
+
 		return newData;
 	}
 }
@@ -47,6 +57,7 @@ export class Sessions {
 	}
 	addDay() {
 		const days = [
+			"First",
 			"Lundi",
 			"Mardi",
 			"Mercredi",
@@ -54,16 +65,33 @@ export class Sessions {
 			"Vendredi",
 			"Samedi",
 			"Dimanche",
+			"Last",
 		];
-		console.log(days[4]);
-		const newSession = this.sessions.map((session) => {
+		const addedSession = [
+			{
+				day: 0,
+				sessionLength:
+					(this.sessions?.[0].sessionLength +
+						this.sessions?.[1].sessionLength) /
+					2,
+			},
+			...this.sessions,
+			{
+				day: 8,
+				sessionLength:
+					(this.sessions[6].sessionLength ??
+						0 + this.sessions[5].sessionLength ??
+						0) / 2,
+			},
+		];
+
+		const newSession = addedSession.map((session) => {
 			const dayNum = session?.day;
 			return {
-				day: days[`${dayNum}` - 1].slice(0, 1),
+				day: days[`${dayNum}`].slice(0, 1),
 				sessionLength: session.sessionLength,
 			};
 		});
-		console.log("new data", newSession);
 		return { userId: this.userId, sessions: newSession };
 	}
 }

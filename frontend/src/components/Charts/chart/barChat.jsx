@@ -34,7 +34,7 @@ const BarChart = ({ data }) => {
 				/>
 				<XAxis
 					dataKey="index"
-					padding={"no-gap"}
+					padding={{ top: 10 }}
 					tickLine={false}
 					dx={0}
 					strokeWidth={1.5}

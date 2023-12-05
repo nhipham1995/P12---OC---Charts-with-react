@@ -22,6 +22,7 @@ export const CustomTooltip = ({ active, payload, label, x, y }) => {
 };
 
 export const CustomLineTooltip = ({ active, payload, coordinate, width }) => {
+	console.log(coordinate?.x);
 	if (active && payload && payload.length) {
 		return (
 			<div>

@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchData } from "./fetch";
-import { Performance, Sessions } from "../models";
+import { Information, Performance, Sessions } from "../models";
 
 const baseUrl = "http://localhost:4000";
 
@@ -21,24 +21,28 @@ export function DataContextProvider(props) {
 	const [performance, setPerformance] = useState();
 
 	useEffect(() => {
-		fetchData(userURL).then((res) => {
-			setUserData(res);
+		fetchData(userURL, userId).then((res) => {
+			const data = new Information(res);
+			const newData = data.transformData();
+			setUserData(newData);
 		});
 
-		fetchData(activityURL).then((res) => setActivityData(res));
+		fetchData(activityURL, userId, "activity").then((res) =>
+			setActivityData(res)
+		);
 
-		fetchData(avgSessionURL).then((res) => {
+		fetchData(avgSessionURL, userId, "avgSession").then((res) => {
 			const data = new Sessions(res);
 			const newSessions = data.addDay();
 			setAvgSession(newSessions);
 		});
 
-		fetchData(performanceURL).then((res) => {
+		fetchData(performanceURL, userId, "performance").then((res) => {
 			const per = new Performance(res);
 			const result = per.combination();
 			setPerformance(result);
 		});
-	}, [userURL, activityURL, avgSessionURL, performanceURL]);
+	}, [userURL, activityURL, avgSessionURL, performanceURL, userId]);
 
 	return (
 		<DataContext.Provider

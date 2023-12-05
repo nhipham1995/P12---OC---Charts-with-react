@@ -7,9 +7,7 @@ import {
 } from "recharts";
 
 const PieChart = ({ data }) => {
-	// const dataWrapper = [data];
-	const score = data?.todayScore;
-
+	const score = data?.score;
 	const newData = [
 		{
 			value: parseFloat(score) * 100,
@@ -20,7 +18,6 @@ const PieChart = ({ data }) => {
 			fill: "#FFFFFF",
 		},
 	];
-	console.log(newData);
 
 	return (
 		<ResponsiveContainer width="100%" height={250}>
@@ -28,18 +25,16 @@ const PieChart = ({ data }) => {
 				<Pie
 					data={newData}
 					startAngle={90}
-					// endAngle={90 + (data?.todayScore * 360) / 100}
 					endAngle={360 + 92}
 					innerRadius={100}
 					outerRadius={115}
-					// fill="#F60000"
 					dataKey="value"
 					cornerRadius={10}
 					cx="50%"
 					cy="50%"
 				>
 					<Label
-						// this part allows to customize the position of label
+						// customize the position of label
 						content={(props) => {
 							const {
 								viewBox: { cx, cy },
@@ -57,7 +52,6 @@ const PieChart = ({ data }) => {
 									fontSize={45}
 									fontWeight={700}
 									{...positioningProps}
-									// style={{ color: "red", opacity: "100" }}
 								>
 									{newData?.[0].value + "%"}
 								</Text>
@@ -66,7 +60,7 @@ const PieChart = ({ data }) => {
 					/>
 
 					<Label
-						// this part allows to customize the position of label
+						// customize the position of darker background
 						content={(props) => {
 							const {
 								viewBox: { cx, cy },

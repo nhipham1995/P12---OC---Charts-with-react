@@ -20,9 +20,10 @@ const LineChart = ({ data }) => {
 		if (width !== chartRef?.current?.current?.offsetWidth)
 			setWidth(chartRef?.current?.current?.offsetWidth);
 	}, [width]);
+	console.log("line chart data: ", data);
 
 	return (
-		<ResponsiveContainer width="100%" height={260} ref={chartRef}>
+		<ResponsiveContainer width="110%" height={260} ref={chartRef}>
 			<RCLineChart data={data?.sessions}>
 				<XAxis
 					dataKey="day"
@@ -33,7 +34,7 @@ const LineChart = ({ data }) => {
 						fontWeight: 600,
 					}}
 					axisLine={false}
-					padding={{ right: 10, left: 10 }}
+					padding={{ right: 10, left: -30 }}
 				/>
 
 				<YAxis
