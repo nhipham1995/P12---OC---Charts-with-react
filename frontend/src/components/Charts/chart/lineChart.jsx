@@ -20,7 +20,6 @@ const LineChart = ({ data }) => {
 		if (width !== chartRef?.current?.current?.offsetWidth)
 			setWidth(chartRef?.current?.current?.offsetWidth);
 	}, [width]);
-	console.log("line chart data: ", data);
 
 	return (
 		<ResponsiveContainer width="110%" height={260} ref={chartRef}>

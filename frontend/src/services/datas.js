@@ -1,7 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { fetchData } from "./fetch";
 import { Information, Performance, Sessions } from "../models";
+
+import data from "../_mocks/data";
 
 const baseUrl = "http://localhost:4000";
 
@@ -20,7 +22,16 @@ export function DataContextProvider(props) {
 	const [avgSession, setAvgSession] = useState();
 	const [performance, setPerformance] = useState();
 
+	const index = data.USER_MAIN_DATA.findIndex(
+		(v) => Number(v.id) === Number(userId)
+	);
+
 	useEffect(() => {
+		if (index === -1) {
+			<Navigate to="/404" />;
+			return;
+		}
+
 		fetchData(userURL, userId).then((res) => {
 			const data = new Information(res);
 			const newData = data.transformData();
@@ -42,7 +53,11 @@ export function DataContextProvider(props) {
 			const result = per.combination();
 			setPerformance(result);
 		});
-	}, [userURL, activityURL, avgSessionURL, performanceURL, userId]);
+	}, [userURL, activityURL, avgSessionURL, performanceURL, userId, index]);
+
+	if (index === -1) {
+		return <Navigate to="/404" />;
+	}
 
 	return (
 		<DataContext.Provider

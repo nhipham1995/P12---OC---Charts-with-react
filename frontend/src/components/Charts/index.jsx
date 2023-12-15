@@ -20,15 +20,7 @@ const Charts = ({ activityData, avgSession, performance, user }) => {
 			>
 				<BarChart data={activityData} />
 			</div>
-			<div
-				className="multi-charts"
-				// style={{
-				// 	marginTop: "50px",
-				// 	display: "grid",
-				// 	gap: "50px",
-				// 	gridTemplateColumns: "repeat(3, 1fr)",
-				// }}
-			>
+			<div className="multi-charts">
 				<div
 					style={{
 						backgroundColor: "#FF0000",

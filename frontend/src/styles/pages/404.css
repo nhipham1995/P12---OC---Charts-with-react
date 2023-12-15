@@ -1,0 +1,46 @@
+.not-found {
+	margin-top: 200px;
+}
+.not-found h1 {
+	font-size: 10rem;
+	color: #e60000;
+	font-family: "Montserrat", sans-serif;
+	font-weight: bolder;
+	margin-top: 20px;
+	margin-bottom: 70px;
+	text-align: center;
+}
+.not-found p {
+	color: #e60000;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
+	font-size: 1.5rem;
+	margin-bottom: 50px;
+	text-align: center;
+}
+.not-found a {
+	color: #e60000;
+	font-family: "Montserrat", sans-serif;
+	display: flex;
+	justify-content: center;
+}
+
+@media screen and (max-width: 992px) {
+	.not-found h1 {
+		font-size: 7rem;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+	.not-found p {
+		font-size: 1rem;
+		margin-bottom: 50px;
+	}
+}
+@media screen and (max-width: 768px) {
+	.not-found h1 {
+		font-size: 5rem;
+	}
+	.not-found p {
+		font-size: 0.8rem;
+	}
+}

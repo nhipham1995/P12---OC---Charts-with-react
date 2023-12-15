@@ -1,6 +1,5 @@
 export const CustomizedDot = (props) => {
 	const { cx, cy, width } = props;
-	console.log("in chart", width);
 	return (
 		<svg
 			viewBox={`0 0 ${width} 280`}

@@ -18,6 +18,7 @@ const sports = [
 const Home = () => {
 	const { userData, activityData, avgSession, performance } =
 		useDataContext();
+
 	const test = new DataKey(userData?.keyData);
 	const energies = test.result();
 

@@ -16,13 +16,13 @@ export const CustomTooltip = ({ active, payload, label, x, y }) => {
 					))}
 				</div>
 			</div>
+			// <div>Text infos</div>
 		);
 	}
 	return null;
 };
 
 export const CustomLineTooltip = ({ active, payload, coordinate, width }) => {
-	console.log(coordinate?.x);
 	if (active && payload && payload.length) {
 		return (
 			<div>
@@ -47,6 +47,8 @@ export const CustomLineTooltip = ({ active, payload, coordinate, width }) => {
 						</div>
 					))}
 				</div>
+
+				{/* dark background hover - calculer */}
 				<div
 					style={{
 						backgroundColor: "black",
